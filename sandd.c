@@ -6,7 +6,10 @@
 #include<windows.h>
 #include<stdlib.h>
 #include<time.h>
+void administration(void);
 
+
+void addrecord(void);
 
 void reserveRoom(char fileName[30]);
 
@@ -241,4 +244,77 @@ void reserveRoom(char fileName[30])
 	fclose(f);
 }
 
+void administration(void)
+{
+	//Password();
+	system("cls");
+	printf("**************************************WELCOME TO THE EMPLOYEE SECTION************************************************\n\n");
+	printf("          1. Add Record\n\n          2. Search Record\n\n          3. Delete Record\n\n          4. View Records\n\n          5. View previous orders placed\n\n          6. Back To Main Menu \n\n             Enter Your Choice --->");
+	int n;
+	scanf("%d",&n);
+		printf("\n\n");
+	int delay;
+	for(delay=0;delay<=100000;delay++)
+	{
+		printf("\rIn progress : %d",delay/1000);
+	}
+	printf("\n\n");
+	if(n==1)
+	{
+		addrecord();
+	}
+	else if(n==2)
+	{
+		searchrecord();
+	}
+	else if(n==3)
+	{
+		deleterecord();
+	}
+	else if(n==4)
+	{
+		viewrecord();
+	}
+		else if(n==5)
+	{
+		FILE *view;
+		char viw;
+		view = fopen("order.txt","rt");
+		while((viw=fgetc(view))!=EOF)
+		{
+			printf("%c",viw);
+		}
+		fclose(view);
+	}
+	else if(n==6)
+	{
+		system("cls");
+		dinemanagement();
+	}
+	else
+	{
+		printf("Wrong Input !! PLease Re-enter The Correct Option");
+		if(getch())
+		administration();
+	}
 
+}
+void addrecord(void)
+{
+	system("cls");
+	fp=fopen("record1.txt","a");
+	if(getdata()==1)
+	{
+		fseek(fp,0,SEEK_END);
+		fwrite(&e,sizeof(e),1,fp);
+		fclose(fp);
+		printf("\n\n");
+		printf("The Record Is Successfully Saved ! !\n\n");
+		printf("Save any more?(Y / N): ");
+		if(getch()=='n')
+	    	administration();
+		else
+	    	system("cls");
+	    	addrecord();
+	}
+}
