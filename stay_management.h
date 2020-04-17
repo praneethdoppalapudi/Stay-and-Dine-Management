@@ -88,6 +88,67 @@ void stay_management(){
     }
 }
 
+/*functionality to add customer details into the file*/
+void add_customer_details() {
+    FILE *f;
+    char esc_to_exit;
+    f=fopen("customer_details.txt","a+");/*opening the file in write mode to save the details*/
+    if(f==0) {
+        f=fopen("customer_details.txt","w+");
+	system("cls");
+	printf("Please hold on while we set our database in your computer!!");
+	printf("\n Process completed press any key to continue!! ");
+	getch();
+    }
+    while(1){
+        system("cls");
+        /*Saving all the customer details into the structure room_booking_customer_details*/
+	    printf("\n Enter Customer Details:");
+	    printf("\n**************************");
+	    printf("\n Enter Room number:\n");
+	    scanf("\n%s",customer_room_details.customer_room_number);
+	    fflush(stdin);
+	    if(check_room_number(customer_room_details.customer_room_number == 1)){
+            printf("Enter customer name:\n");
+            scanf("%s",customer_room_details.customer_name);
+            fflush(stdin);
+            printf("Enter customer address:\n");
+            scanf("%s",customer_room_details.customer_address);
+            fflush(stdin);
+            printf("Enter Phone Number:\n");
+            scanf("%s",customer_room_details.customer_phone_number);
+            fflush(stdin);
+            printf("Enter customer nationality:\n");
+            scanf("%s",customer_room_details.customer_nationality);
+            fflush(stdin);
+            printf("Enter customer email:\n");
+            scanf(" %s",customer_room_details.customer_email);
+            fflush(stdin);
+            printf("Enter customer period of stay(\'x\'days):\n");
+            scanf("%s",&customer_room_details.customer_period_of_stay);
+            fflush(stdin);
+            printf("Enter Arrival date(dd\\mm\\yyyy):\n");
+            scanf("%s",&customer_room_details.customer_arrival_date);
+            fflush(stdin);
+            /*Saving all the details into the file*/
+            fwrite(&customer_room_details,sizeof(customer_room_details),1,f);
+            fflush(stdin);
+            printf("\n\n1 Room is successfully booked!!");
+            printf("\n Press esc key to exit,  any other key to add_customer_details another customer detail:");
+            esc_to_exit=getche();
+            if(esc_to_exit==27){
+                break;
+            }
+	    }
+	    else{
+            printf("\n\n*****ROOM IS CURRENTLY UNAVAILABLE******");
+            getch();
+            break;
+	    }
+    }
+	fclose(f);/*closing the file*/
+}
+
 /*Functionality to delete customer details which are saved in the file*/
 void customer_details_delete(){
     FILE *f,*t;
@@ -132,6 +193,36 @@ void customer_details_delete(){
     printf("\n\nThe Customer is successfully removed....");
     getch();
 }
+
+/*Functionality to Display Customer details saved into a file*/
+void customer_details_display()
+{
+    FILE *f;
+    int i;
+    /*Opening file in read mode to display the information*/
+    if((f=fopen("customer_details.txt","r"))==NULL) {
+	exit(0);
+    }
+    system("cls");
+    printf("\n\t\t**********CUSTOMER DETAILS*********\n ");
+        /*Displaying all customer Information*/
+    while(fread(&customer_room_details,sizeof(customer_room_details),1,f)==1) {
+        printf("customer Room Number :\t%s\n",customer_room_details.customer_room_number);
+        printf("customer Name:\t%s\n",customer_room_details.customer_name);
+        printf("customer address:\t%s\n",customer_room_details.customer_address);
+        printf("customer phone_number:\t%s\n",customer_room_details.customer_phone_number);
+        printf("customer nationality: \t%s \n", customer_room_details.customer_nationality);
+        printf("customer email: \t%s \n", customer_room_details.customer_email);
+        printf("customer period of stay: \t%s \n",    customer_room_details.customer_period_of_stay);
+        printf("customer arrival date: \t%s \n",    customer_room_details.customer_arrival_date);
+        printf("-----------------------------\n");
+    }
+    printf("\n");
+    fclose(f);
+    getch();
+}
+
+
 /*Functionality to edit existing customer details*/
 void customer_details_edit()
 {
