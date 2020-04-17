@@ -337,6 +337,30 @@ void view_order(){
     printf("\nGrand Total : %d\n",totatl);
     fclose(tt2);
 }
+/* This displays the previous order not related to this order */
+void previous_order()
+{
+    FILE *tt1='NULL';
+    FILE *tt2='NULL';
+    tt1= fopen("complete_order.txt","r");
+    tt2= fopen("cust_detail.txt","r");
+    int totall = total_price;
+    struct food_details input1;
+    struct customer_detail input2;
+    printf("\n ********************Your order details***************\n");
+    while(fread(&input1, sizeof(struct food_details), 1, tt1))
+    printf ("\n Id= %d \n item name= %s \n ",input1.item_no,input1.item_name);
+    while(fread(&input2, sizeof(struct customer_detail), 1, tt2))
+    printf ("\n first name=%s \n last name=%s \n",input2.first_name,input2.last_name);
+    printf ("\n  room number=%d ",input2.room_no);
+    printf("\nGrand Total : %d\n",totall);
+    fclose(tt2);
+    printf("enter any key to exit");
+    if(getch()){
+        system("cls");
+        mainmenu();
+    }
+}
 /* This is to edit your order i.e to make any changes in your food items */
 void edit_order(){
     FILE *f;
