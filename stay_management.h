@@ -87,3 +87,41 @@ void stay_management(){
         }
     }
 }
+/*Functionality to search a particular customer using room number*/
+void customer_details_search()
+{
+    system("cls");
+    FILE *f;
+    char customer_room_number[20];
+    int flag=1;
+    f=fopen("customer_details.txt","r+");
+    if(f==0) {
+        exit(0);
+    }
+    fflush(stdin);
+    printf("Enter Room number of the customer to search its details: \n");
+    scanf("%s", customer_room_number);
+    while(fread(&customer_room_details,sizeof(customer_room_details),1,f)==1) {
+        /*Search the customer details by comparing room number in the file and room number provided by user */
+        if(strcmp(customer_room_details.customer_room_number,customer_room_number)==0){
+	        flag=0;
+    /*Displaying the customer details after searching the required information*/
+	        printf("\n\tRecord Found\n ");
+	        printf("\nRoom Number:\t%s",customer_room_details.customer_room_number);
+	        printf("\ncustomer name:\t%s",customer_room_details.customer_name);
+	        printf("\ncustomer address:\t%s",customer_room_details.customer_address);
+	        printf("\nPhone number:\t%s",customer_room_details.customer_phone_number);
+	        printf("\ncustomer nationality:\t%s",customer_room_details.customer_nationality);
+	        printf("\ncustomer email:\t%s",customer_room_details.customer_email);
+	        printf("\ncustomer period_of_stay:\t%s",customer_room_details.customer_period_of_stay);
+	        printf("\nArrival date:\t%s",customer_room_details.customer_arrival_date);
+	        flag=0;
+	        break;
+	    }
+    }
+    if(flag==1){
+        printf("\n\tRequested Customer could not be found!");
+    }
+    getch();
+    fclose(f);
+}
