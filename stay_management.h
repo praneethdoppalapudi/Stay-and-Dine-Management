@@ -339,3 +339,24 @@ void customer_details_search()
     fclose(f);
 }
 
+
+int check_room_number(char c[20]){  /*check whether the record is exist in list or not*/
+    FILE *fs;
+	fs=fopen("customer_details.txt","a+");
+    fseek (fs, 0, SEEK_END);
+    if( ftell(fs) == 0){
+        return 1;  /*returns 1 if employee_details exits*/
+    }
+    else{
+        while(fread(&customer_room_details,sizeof(customer_room_details),1,fs)==1){
+            if(strcmp(customer_room_details.customer_room_number,c) == 0){
+                return 0;  /*returns 0 if employee_details exits*/
+            }
+            else{
+                return 1; /*return 1 if it not*/
+            }
+        }
+    }
+    fclose(fs);
+
+}
