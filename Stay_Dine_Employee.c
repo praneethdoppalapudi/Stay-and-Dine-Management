@@ -5,9 +5,9 @@
 #include<ctype.h>
 #include<windows.h>
 #include<time.h>
-#include"stay_management.h"
-#include"employee_management.h"
-#include"dine_management.h"
+#include"stay_management.c"
+#include"employee_management.c"
+#include"dine_management.c"
 
 /* This is an c file for Hotel Management system. Hotel management
 includes stay at the hotel, Dine at the hotel and also managing
