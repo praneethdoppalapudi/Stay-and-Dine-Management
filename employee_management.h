@@ -228,4 +228,85 @@ void search_record(void){
     fclose(fp);
 }
 
+/*function to delete a record*/
+void delete_record(void){
+	system("cls");
+    int d;
+    char another='y';
+    while(another=='y'){
+	system("cls");
+	printf("                Enter The Employee ID To Delete :");
+	scanf(" %d",&d);
+	fp =fopen("record1.txt","r+");
+	rewind(fp);
+	while(fread(&e,sizeof(e),1,fp)==1){
+	    if(e.id==d){
+			printf("\n\n");
+			printf(".....................The Employee Record Is Available....................\n\n");
+			printf("               Employee's Name Is %s\n\n",e.name);
+			printf("               Employee's Date  OF Birth Is %d/%d/%d\n\n",e.dd,e.mm,e.yyyy);
+			findrecord='t';
+	    }
+	}
+	if(findrecord!='t'){
+	    printf(".........................No record is found modify the search.................\n\n");
+	    if(getch())
+	    employee_management();
+	}
+	if(findrecord=='t' ){
+	    printf("Do You Want To Delete The Record ? (Y/N) ");
+
+	    if(getch()=='y'){
+	        ft=fopen("test1.txt","a+");  /*temporary file for delete*/
+                fseek (fp, 0, SEEK_SET);
+			while(fread(&e,sizeof(e),1,fp)==1){
+			    printf("%d %d",e.id,d);
+		    	if(e.id!=d){
+		    	    printf("%d %d",e.id,d);
+					fwrite(&e,sizeof(e),1,ft); /*write all in tempory file except that*/
+
+		    	}                              /*we want to delete*/
+			}
+        fclose(ft);
+        fclose(fp);
+			int q = remove("record1.txt");
+			int w = rename("test1.txt","record1.txt"); /*copy all item from temporary file to fp except that*/
+			printf("%d %d", q,w);
+            printf("        THE RECORD IS SUCCESSFULLY DELETED.\n\n");
+            printf("        Delete Another Record ? (Y/N) : ");
+	    }
+		else{
+		employee_management();
+		}
+		fflush(stdin);
+		another=getch();
+	}
+}
+employee_management();
+}
+
+
+/* function to view all available employee records*/
+void view_record(void){
+    system("cls");
+    printf("********************** Employee Details**********************\n\n");
+    printf("                 DEPARTMENT        ID        Employee NAME        D.O.B        Y.O.J        PLACE\n\n");
+    fp=fopen("record1.txt","r");
+    while(fread(&e,sizeof(e),1,fp)==1){
+		printf("                 %s",e.department);
+		printf("        %d",e.id);
+		printf("        %s",e.name);
+		printf("        %d/%d/%d",e.dd,e.mm,e.yyyy);
+		printf("        %d",e.YOJ);
+		printf("        %s",e.place);
+		printf("\n\n");
+	}
+    fclose(fp);
+    getch();
+    employee_management();
+}
+
+
+
+
 
