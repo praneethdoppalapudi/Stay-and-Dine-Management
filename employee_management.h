@@ -67,6 +67,81 @@ void employee_management(void){
 	}
 }
 
+/*function to add a record*/
+void add_record(void){
+	system("cls");
+	if(getdata()==1){  /* function call to enter all the details*/
+        fp=fopen("record1.txt","a+");
+		fseek(fp,0,SEEK_END);
+		fwrite(&e,sizeof(e),1,fp);
+		fclose(fp);
+		printf("\n\n");
+		printf("The Record Is Successfully Saved ! !\n\n");
+		printf("Save any more?(Y / N): ");
+		if(getch()=='n'){
+	    	employee_management();
+		}
+		else{
+	    	add_record();
+		}
+	}else{
+	    employee_management();
+	}
+	int checkid(int c){  /*check whether the record is exist in list or not*/
+	fp=fopen("record1.txt","a+");
+    fseek (fp, 0, SEEK_END);
+    if( ftell(fp) == 0){
+        return 1;  /*returns 1 if employee_details exits*/
+    }
+    else{
+        fseek (fp, 0, SEEK_SET);
+        while(fread(&e,sizeof(e),1,fp)==1){
+            if(e.id==c){
+                return 0;  /*returns 0 if employee_details exits*/
+            }
+            else{
+                return 1; /*return 1 if it not*/
+            }
+        }
+    }
+
+}
+
+/* function to add all employee details taken from user*/
+int getdata(){
+	int t = 0;
+	int  tempvar;
+	printf("\tEnter Employee ID :\t");
+	scanf("%d",&t);
+	fflush(stdin);
+	tempvar = checkid(t);
+	fclose(fp);
+	if(tempvar == 0){
+		printf("\n\n");
+		printf("\a***************The Employee Record Already Exists !!!\a");
+		getch();
+		return 0;
+	}else if(tempvar==1){
+        e.id=t;
+        printf("\tEnter Employee Name : ");
+        scanf("%s",e.name);
+        fflush(stdin);
+        printf("        Date Of Birth (dd/mm/yyyy) :");
+        scanf("%d/%d/%d",&e.dd,&e.mm,&e.yyyy);
+        fflush(stdin);
+        printf("        Year OF Joining :");
+        scanf("%d",&e.YOJ);
+        fflush(stdin);
+        printf("        Place :");
+        scanf("%s",e.place);
+        fflush(stdin);
+        printf("        Department :");
+        scanf("%s",e.department);
+        fflush(stdin);
+        return 1;
+	}
+}
+
 /* function  to search all available records by id or name*/
 void search_record(void){
 	system("cls");
@@ -149,3 +224,5 @@ void search_record(void){
     }
     fclose(fp);
 }
+
+
