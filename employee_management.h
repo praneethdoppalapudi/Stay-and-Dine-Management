@@ -66,6 +66,7 @@ void employee_management(void){
 		employee_management();
 	}
 }
+
 /*function to add a record*/
 void add_record(void){
 	system("cls");
@@ -140,3 +141,88 @@ int getdata(){
         return 1;
 	}
 }
+
+/* function  to search all available records by id or name*/
+void search_record(void){
+	system("cls");
+    int d = 0;
+    printf("*****************************Search Employee Record*********************************\n\n");
+    printf("                  1. Search By ID\n");
+    printf("                  2. Search By Name\n\n");
+    printf("                  Enter Your Choice---> ");
+    fp=fopen("record1.txt","r"); /*open file for reading propose*/
+    rewind(fp);   /*move pointer at the begining of file*/
+    switch(getch()){
+        case '1':{ /*search recorde by id*/
+	    	system("cls");
+	    	printf("**************Search Record By Id****************\n\n");
+	    	printf("                Enter The Employee ID : ");
+	    	scanf(" %d",&d);
+	    	fflush(stdin);
+	    	printf("\n\n");
+			printf("Searching........");
+	    	while(fread(&e,sizeof(e),1,fp)==1){
+				if(e.id==d){
+		    		printf("\n\n");
+ 					printf("...........................The Record is available............................\n\n");
+				    printf("       ID : %d\n\n",e.id);
+				    printf("       Name : %s\n\n",e.name);
+				    printf("       Date OF Birth :%d/%d/%d\n\n",e.dd,e.mm,e.yyyy);
+				    printf("       Year Of Joining :%d\n\n",e.YOJ);
+				    printf("       Department :%s\n\n",e.department);
+				    printf("       Place :%s\n\n",e.place);
+				    findrecord='t';
+				}
+            }
+            if(findrecord!='t'){
+                printf("\aNo Record Found\a");
+            }
+            printf("Try Another Search ? (y/n)");
+            if(getch()=='y'){
+                search_record();
+            }
+            else{
+                employee_management();
+            }
+            break;
+        }
+        case '2':{ /* search record by name*/
+            char s[15];
+            system("cls");
+            printf("**********************Search Employee By Name***************************\n\n");
+            printf("               Enter Employee's Name : ");
+            scanf(" %s",s);
+            fflush(stdin);
+            int d=0;
+            while(fread(&e,sizeof(e),1,fp)==1){
+                if(strcmp(e.name,(s))==0){
+                    printf(".........................The Record is available...........................\n\n\n");
+                    printf("       ID : %d\n\n",e.id);
+                    printf("       Name : %s\n\n",e.name);
+                    printf("       Date OF Birth :%d/%d/%d\n\n",e.dd,e.mm,e.yyyy);
+                    printf("       Year Of Joining :%d\n\n",e.YOJ);
+                    printf("       Department :%s\n\n",e.department);
+                    printf("       Place :%s\n\n",e.place);
+                    d++;
+                }
+            }
+            if(d==0){
+                printf("\aNo Record Found\a");
+            }
+            printf("Try Another Search ? (Y/N)");
+            if(getch()=='y'){
+                search_record();
+            }
+            else{
+                employee_management();
+            }
+            break;
+        }
+        default :
+            getch();
+            search_record();
+    }
+    fclose(fp);
+}
+
+
