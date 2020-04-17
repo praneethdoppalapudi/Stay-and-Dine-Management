@@ -87,6 +87,9 @@ void add_record(void){
 	}else{
 	    employee_management();
 	}
+}
+
+
 	int checkid(int c){  /*check whether the record is exist in list or not*/
 	fp=fopen("record1.txt","a+");
     fseek (fp, 0, SEEK_END);
