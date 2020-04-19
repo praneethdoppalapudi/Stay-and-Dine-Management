@@ -5,6 +5,7 @@
 #include<ctype.h>
 #include<windows.h>
 #include<time.h>
+#include<unistd.h>
 #include"stay_management.c"
 #include"employee_management.c"
 #include"dine_management.c"
@@ -25,11 +26,21 @@ too many functionality has code complexity we tried to implement each
 functonality to different header files and included them in this main
 class to access all the core features provided by each functions.*/
 
+/*
+ * @file Stay_Dine_Employee.c
+ *
+ * @brief Has the primary main function to display Main Menu..
+ *
+ * @author Praneeth Doppalapudi     - praneethdoppalapudi@cmail.carleton.ca
+ * @author Bhavani Singetam         - bsing105@uottawa.ca
+ * @author Sravya Yarlagadda        - sravyayarlagaddda@cmail.carleton.ca
+ * @author Hitesh Chowdary Nagalla  - hiteshchowdarynagall@cmail.carleton.ca
+ */
 
 /* Function used to set color to text at output window*/
 void setcolor(int ForgC){
-    WORD wColor;
-    HANDLE hStdOut=GetStdHandle(STD_OUTPUT_HANDLE);
+	WORD wColor;
+	HANDLE hStdOut=GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     if(GetConsoleScreenBufferInfo(hStdOut,&csbi)){
         wColor=(csbi.wAttributes & 0xB0)+(ForgC & 0x0B);
@@ -45,13 +56,14 @@ void exit(int status){
 }
 
 /* main function is called by complier to run the program*/
-void main(){
-   mainmenu(); /*function call for displaying main menu*/
+int main(){
+	mainmenu();
+	return 0; /*function call for displaying main menu*/
 }
 
 /*Function to display entire functionality of the project
 inclusing stay, dine and employee management.*/
-void mainmenu(){
+int mainmenu(){
     int option = 0;
     system("cls");   /* FOR CLEARING SCREEN*/
 	setcolor(15);
@@ -96,7 +108,7 @@ void mainmenu(){
         printf("\n\n\t *****THANK YOU*****");
         printf("\n\t FOR TRUSTING OUR SERVICE");
         Sleep(2000);
-        exit(0);
+        return 0;
     }else{
         system("cls");
         printf("Incorrect Input");
