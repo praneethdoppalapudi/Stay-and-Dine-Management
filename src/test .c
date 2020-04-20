@@ -11,7 +11,7 @@
 #include"dine_management.c"
 #include"employee_management.c"
 
-/**
+/*
  * Macro to print out 'passed'/'failed' based on the boolean value of what was
  * provided to it.
  */
@@ -113,10 +113,18 @@ void automated_employee_management_add_customer_testing(){
      add_record();
      printf("\n\tCustomer detail add function passed the test by handling all the conditions  \n \n");
 }
+
+void automated_dine_management_menu_display_testing(){
+     printf("\n\tTesting the function to display dine menu details\n \n");
+     order_food();
+     printf("\n\tMenu details function passed the test by handling all the conditions  \n \n");
+}
+
 int main(){
-   automated_general_design_functions();
-   automated_stay_management_reserve_room_testing();
-   automated_stay_management_customer_details_search_testing();
-   automated_employee_management_add_customer_testing();
-   return EXIT_SUCCESS;
+	automated_general_design_functions();
+	automated_stay_management_reserve_room_testing();
+	automated_stay_management_customer_details_search_testing();
+	automated_employee_management_add_customer_testing();
+	automated_dine_management_menu_display_testing();
+	return EXIT_SUCCESS;
 }
