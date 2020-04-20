@@ -1,3 +1,21 @@
+/*This c program is to test the functions in the main project. We have considered few imporatnt functions which are needed to be tested 
+as issuses are raised by not handling the functions in a proper manner. The are 5 function which has been tested they are:
+1) General design Testing,
+2) stay management reserve room testing,
+3) stay management customer details search testing,
+4) employee management add customer testing,
+5) dine management menu display testing.
+*/
+/*
+ * @file test.c
+ *
+ * @brief Test all functions in stay,dineand employee management..
+ *
+ * @author Praneeth Doppalapudi     - praneethdoppalapudi@cmail.carleton.ca
+ * @author Bhavani Singetam         - bsing105@uottawa.ca
+ * @author Sravya Yarlagadda        - sravyayarlagaddda@cmail.carleton.ca
+ * @author Hitesh Chowdary Nagalla  - hiteshchowdarynagall@cmail.carleton.ca
+ */
 #include<stdio.h>
 #include<stdio.h>
 #include<conio.h>
