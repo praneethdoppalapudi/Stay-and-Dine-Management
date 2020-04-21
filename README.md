@@ -11,13 +11,6 @@
 
 Stay and Dine Management is a software that integrate the main functionality of stay management with Dine management and Employee management. This project aims to minimize the errors that occur while making bills and also to avoid delays in providing bills to customers, which can include taxes on basis of their cheques. In this project will take user choice as input i.e., whether to reserve a room, book an event, or to order food from menu supplied by the client. The output of the program is seamlessly fluent to use and easy to understand even to a non-technical user. This project provides trouble free environment, as it helps the user or admin to be efficient about the records without any strain.
 
-# Authors
-
-- Bhavani Singetam -  bsing105@uottawa.ca - University of Ottawa
-- Praneeth Doppalapudi - praneethdoppalapudi@cmail.carleton.ca - Carleton University
-- Sravya Yarlagadda - sravyayarlagadda@cmail.carleton.ca - Carleton University
-- Hitesh Nagalla - hiteshchowdarynagall@cmail.carleton.ca - Carleton University
-
 # Installation
 
 Installation steps are mentioned in [install.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/install.md)
