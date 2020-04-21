@@ -11,12 +11,10 @@ Stay and Dine Management is a software that integrate the main functionality of 
 
 # Installation
 
-Installation steps are mentioned in [install.md]
-https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/install.md
+Installation steps are mentioned in [install.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/install.md)
 
 # Usage
-
-To run, you must first install it. Then you can follow instructions mentioned in [User_Manual.md](https://github.com/karthikdilliraj/sensorfusion/blob/master/doc/User_Manual.md).
+To run, you must first install it. Then you can follow instructions mentioned in [user_manual.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/dev_doc/user_manual.md)
 
 # File Structure
 
@@ -56,4 +54,4 @@ This project is licensed under the GPL 3.0 License - see the file for details [L
 
 # Acknowledgements
 
-Thank to Dr. Cristina Ruiz Martin for providing guidance on how to develop the software.
+Thanks to Dr. Cristina Ruiz Martin for providing guidance on how to develop the software.
