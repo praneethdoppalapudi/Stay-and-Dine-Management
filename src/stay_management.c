@@ -132,7 +132,7 @@ int add_customer_details(char *filename) {
         Sleep(2000);
             return -1;
     }
-    f=fopen("..\\doc\\filename","a+");/*opening the file in write mode to save the details*/
+    f=fopen(filename,"a+");/*opening the file in write mode to save the details*/
     if(f==0) {
         f=fopen(filename,"w+");
 		system("cls");
