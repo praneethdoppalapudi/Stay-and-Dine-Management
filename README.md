@@ -1,3 +1,12 @@
+# Organization : Carleton University
+
+# Authors
+
+- Bhavani Singetam -  bsing105@uottawa.ca - University of Ottawa
+- Praneeth Doppalapudi - praneethdoppalapudi@cmail.carleton.ca - Carleton University
+- Sravya Yarlagadda - sravyayarlagadda@cmail.carleton.ca - Carleton University
+- Hitesh Nagalla - hiteshchowdarynagall@cmail.carleton.ca - Carleton University
+
 # Stay_and_Dine_Management
 
 Stay and Dine Management is a software that integrate the main functionality of stay management with Dine management and Employee management. This project aims to minimize the errors that occur while making bills and also to avoid delays in providing bills to customers, which can include taxes on basis of their cheques. In this project will take user choice as input i.e., whether to reserve a room, book an event, or to order food from menu supplied by the client. The output of the program is seamlessly fluent to use and easy to understand even to a non-technical user. This project provides trouble free environment, as it helps the user or admin to be efficient about the records without any strain.
@@ -14,7 +23,7 @@ Stay and Dine Management is a software that integrate the main functionality of 
 Installation steps are mentioned in [install.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/install.md)
 
 # Usage
-To run, you must first install it. Then you can follow instructions mentioned in [user_manual.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/dev_doc/user_manual.md)
+To run, you must first install it. Then you can follow instructions mentioned in [user_manual.md](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev_development/dev_doc/User_Manual.md)
 
 # File Structure
 
@@ -24,6 +33,7 @@ The correct file structure (after installing GSL library should be followed and 
 ```
 ├── DEV_DOC.md 	-> Usage file
            └── User_Manual.md
+	   └── developer_manual.md	 
 ├── INSTALL.md 	-> Installation Guide
 ├── LICENSE 	-> License file
 ├── Makefile 	-> Makefile
@@ -31,7 +41,7 @@ The correct file structure (after installing GSL library should be followed and 
 ├── bin 	-> Binary directory
 ├── install.sh 	-> Installation script
 ├── build 	-> Object files
-          ├── Stay_Dine_Employee.o
+                  ├── Stay_Dine_Employee.o
 		  ├── stay_management.o
 		  ├── dine_management.o
 		  ├── employee_management.o
@@ -46,7 +56,7 @@ The correct file structure (after installing GSL library should be followed and 
 ```
 # For Developers
 
-For developer manual [click here](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev/dev_doc/user_manual.md).
+For developer manual [click here](https://github.com/praneethdoppalapudi/Stay-and-Dine-Management/blob/dev_development/dev_doc/developer_manual.md).
 
 # License
 
