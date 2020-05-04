@@ -22,7 +22,7 @@ employee_management.o: src/employee_management.c
 stay_management.o: src/stay_management.c
 	$(CC) -ansi -pedantic -Wall -c src/stay_management.c -o build/stay_management.o
 
-test.o: src/test.c
+test.o: test/src/test.c
 	$(CC) -ansi -pedantic -Wall -c test/src/test.c -o build/test.o
 
 tests: Stay_Dine_Employee.o dine_management.o employee_management.o stay_management.o
