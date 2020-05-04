@@ -2,13 +2,21 @@
 
 ## Supported Platforms
 
-Mingw32 and Windows
+Windows
 
 ## Prerequisite
 
 GCC Compiler, GNU make, download utilities such as wget or curl. If using Cygwin, dos2unix will be required
 
-## Installing Git Bash
+## Dependencies for Cross-Compilation
+
+It is possible to cross compile the project in various Operating System like linux and MacOS by using mingw cross compiler.
+Please find the below link for the downloading dependecies:
+http://www.mingw.org/wiki/linuxcrossmingw .
+Command we used for cross compiling: i686-w64-mingw32-gcc, instead Of gcc.
+
+
+## Installing Git Bash for Cloning the Repository.
 
 #### For Linux:
 If you want to install the basic Git tools on Linux via a binary installer, you can generally do so through the package management tool that comes with your distribution. If you’re on Fedora (or any closely related RPM-based distribution, such as RHEL or CentOS), you can use dnf:
