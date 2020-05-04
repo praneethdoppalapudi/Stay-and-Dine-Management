@@ -10,9 +10,9 @@ GCC Compiler, GNU make, download utilities such as wget or curl. If using Cygwin
 
 ## Dependencies for Cross-Compilation
 
-It is possible to cross compile the project in various Operating System BY USING mingw cross compiler.
-Please find the below 
-link for the downloading decencies: http://www.mingw.org/wiki/linuxcrossmingw
+It is possible to cross compile the project in various Operating System like linux and MacOS by using mingw cross compiler.
+Please find the below link for the downloading dependecies:
+http://www.mingw.org/wiki/linuxcrossmingw .
 Command we used for cross compiling: i686-w64-mingw32-gcc, instead Of gcc.
 
 
